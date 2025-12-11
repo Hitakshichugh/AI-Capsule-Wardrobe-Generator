@@ -1,11 +1,12 @@
 🎀 AI Capsule Wardrobe Generator
 
 Generate 30-day outfit ideas from photos of your own clothes using CLIP + Color Harmony + Style Similarity.
+<p align="center"> <img src="https://via.placeholder.com/900x250?text=AI+Capsule+Wardrobe+Generator" /> </p>
 
 🧠 Overview
 
-This project creates a personalized capsule wardrobe using images uploaded by the user.
-You upload photos of your tops, bottoms, dresses, rompers, skirts, and jackets — the system automatically:
+The AI Capsule Wardrobe Generator automatically creates a 30-day personalized outfit calendar using photos of your own clothing items.
+Users upload pictures of their wardrobe (tops, bottoms, skirts, dresses, rompers, jackets), and the system intelligently:
 
 ✔ classifies each clothing item (top/bottom/skirt/dress/romper/jacket)
 ✔ extracts CLIP embeddings for style similarity
@@ -15,74 +16,39 @@ You upload photos of your tops, bottoms, dresses, rompers, skirts, and jackets �
 ✔ creates a 30-day outfit calendar
 ✔ displays the outfits visually side-by-side
 
-✨ Features
+🎯 Core Features
 
-Upload any number of clothing images
+👗 Intelligent Clothing Classification
+The system recognizes:
+Tops (shirts, blouses, hoodies, sweaters)
+Bottoms (jeans, trousers, pants, shorts)
+Skirts
+Dresses
+Rompers / Jumpsuits
+Jackets / Outerwear
 
-Automatic category detection using CLIP
+🎨 Color Harmony Estimation
+Using OpenCV + HSV color space, each item is mapped into three broad groups:
+Warm
+Cool
+Neutral
 
-Color harmony estimation
+Color compatibility scoring follows:
+Neutral + anything → strong match
+Warm + warm or cool + cool → good match
+Warm + cool → moderate match
 
-Style similarity using CLIP embeddings
+🪄 Outfit Generation Logic
+The system automatically generates combinations:
+Top + Bottom (+ optional Jacket)
+Top + Skirt (+ Jacket)
+Dress (+ Jacket)
+Romper (+ Jacket)
 
-Smart outfit generator:
-
-top + bottom
-
-top + skirt
-
-dresses + jackets
-
-rompers + jackets
-
-Rank outfits by style + color
-
-View each outfit visually
-
-Auto-generate a 30-day capsule
-
-🗂 Folder Structure
-├── outfitgenerator.ipynb
-├── uploads/               # user-uploaded clothing images
+'''md
+## 📁 Folder Structure
+├── outfitgenerator.ipynb    # Main notebook with CLIP + CV pipeline
+├── uploads/                 # User-uploaded clothing images
 ├── README.md
 └── requirements.txt
 
-Tech Stack
-
-Python
-
-PyTorch
-
-OpenAI CLIP
-
-Transformers
-
-Pandas
-
-NumPy
-
-OpenCV
-
-Matplotlib
-
-🧑‍🤝‍🧑 Team
-
-Built by:
-
-Hitakshi
-
-Khushi
-
-Navya
-
-Jacob
-
-📌 Future Improvements
-
-Fully interactive UI
-
-Drag-and-drop web upload
-
-PDF export of outfit calendar
-
-Outfit filters (formal/casual/weather)
