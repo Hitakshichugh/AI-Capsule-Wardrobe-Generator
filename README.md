@@ -1,7 +1,6 @@
 🎀 AI Capsule Wardrobe Generator
 
 Generate 30-day outfit ideas from photos of your own clothes using CLIP + Color Harmony + Style Similarity.
-<p align="center"> <img src="https://via.placeholder.com/900x250?text=AI+Capsule+Wardrobe+Generator" /> </p>
 
 🧠 Overview
 
@@ -45,7 +44,6 @@ Top + Skirt (+ Jacket)
 Dress (+ Jacket)
 Romper (+ Jacket)
 
-'''md
 ## 📁 Folder Structure
 ├── outfitgenerator.ipynb    # Main notebook with CLIP + CV pipeline
 ├── uploads/                 # User-uploaded clothing images
