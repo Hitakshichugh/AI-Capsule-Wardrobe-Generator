@@ -87,70 +87,46 @@ jupyter notebook outfitgenerator.py
 ## 🗺️ Project Roadmap
 Phase 1 — Core Model
 
- - [x] CLIP image encoder for style embeddings
-
- - [x] Zero-shot category classification (top/bottom/skirt/dress/romper/jacket)
-
+- [x] CLIP image encoder for style embeddings
+- [x] Zero-shot category classification (top/bottom/skirt/dress/romper/jacket)
 - [x] HSV color detection + color grouping
-
 - [x] Outfit combination logic (tops + bottoms + jackets + one-pieces)
-
 - [x] Outfit scoring system (color harmony + style similarity)
-
 - [x] Generate top 30 outfits for capsule calendar
-
 - [x] Notebook implementation (outfitgenerator.ipynb)
 
 Phase 2 — Backend + API 
 
 - [x] Flask app structure created
-
 - [x] app.py routes (/, /upload, /capsule)
-
 - [x] Fix missing variables (rename items_dict → items_map)
-
 - [x] Clean & integrate wardrobe_model.py with Flask
-
 - [x] Add model loading inside Flask on startup
-
 - [x] Add validation for uploaded files (image only)
 
 Phase 3 — Frontend UI 
 
 - [x] Home page (home.html) — upload wardrobe item
-
 - [x] Capsule page (capsule.html) — calendar + outfit display
-
 - [x] Add CSS (pink theme) to static/css/style.css
-
 - [x] Add responsive layout (mobile-friendly)
-
 - [x] Add hover effects for images
-
 - [x] Add loading animation (“Styling your outfits… ✨”)
 
 Phase 5 — UI to Model Integration 🔗
 
 - [x] Process user-uploaded images through CLIP
-
 - [x] Append new items to wardrobe storage
-
 - [x] Auto-generate capsule calendar on button click
-
 - [x] Visual render: show outfit images in a row
-
 - [x] Error message: require >10 uploads before generating capsule
-
 - [x] Show cute quotes under each day
 
 Phase 7 — Deployment 🚀
 
 - [x] Containerize app with Docker
-
 - [x] Deploy Flask app on Render / Railway
-
 - [x] Add environment variables + config
-
 - [x] Make public demo link available on GitHub
 
 ## 🌐 Future Improvements
