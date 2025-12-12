@@ -429,7 +429,7 @@ def add_wardrobe_item(path):
     record = {
         "filename": path.name,
         "full_path": str(path),
-        "category": category,          # 👈 this is the column you were missing
+        "category": category,          
         "color_group": color_group,
     }
 
