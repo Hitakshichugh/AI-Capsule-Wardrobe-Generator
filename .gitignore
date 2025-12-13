@@ -6,3 +6,10 @@ uploads/
 .DS_Store
 Thumbs.db
 *.zip
+wardrobe_raw
+templates
+static
+capsule_snapshot.html
+client.py
+outfitgeerator.ipynb
+submission requirements.md
