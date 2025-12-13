@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}30-Day Capsule | Capsule Wardrobe AI{% endblock %}
+
+{% block content %}
+<section class="cw-card mb-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <div>
+      <p class="cw-section-label mb-1">Capsule overview</p>
+      <h2 class="card-title mb-1">{{ month_name }} {{ year }}</h2>
+      <p class="text-muted mb-0">
+        Hover over each day to peek at that day’s outfit combo.
+      </p>
+    </div>
+    <a href="{{ url_for('home') }}" class="cw-chip-link">
+      + Go back to wardrobe &amp; upload
+    </a>
+  </div>
+</section>
+
+{% if message %}
+  <section class="cw-card text-center">
+    <p class="mb-3">{{ message }}</p>
+    <a href="{{ url_for('home') }}" class="cw-btn-secondary">
+      Upload wardrobe items
+    </a>
+  </section>
+{% endif %}
+
+{% if days %}
+  <!-- Weekday row like a calendar header -->
+  <div class="cw-week-header mb-2">
+    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+    <span>Thu</span><span>Fri</span><span>Sat</span>
+  </div>
+
+  <div class="cw-calendar-grid">
+    {% for day in days %}
+      {% set outfit = day.outfit %}
+      <article class="cw-day-card">
+        <!-- front view -->
+        <div class="cw-day-front">
+          <div class="cw-day-pill">
+            Day {{ outfit.day }}
+          </div>
+          <div class="cw-day-meta mt-3">
+            <div class="cw-date">{{ day.day_number }} {{ month_name }}</div>
+            <div class="cw-weekday">{{ day.weekday }}</div>
+          </div>
+          <p class="cw-quote mt-3">
+            {{ day.quote }}
+          </p>
+        </div>
+
+        <!-- hover view -->
+        <div class="cw-day-back">
+          <p class="cw-back-title">Outfit details</p>
+          <ul class="list-unstyled mb-0">
+          {% for item_id in outfit['items'] %}
+          {% set item = items[item_id] %}
+        <li class="cw-item-line">
+        <span class="item-dot"></span>
+        <div>
+        <div class="fw-semibold">{{ item.category | capitalize }}</div>
+        <img
+          src="{{ url_for('uploaded_file', filename=item.filename) }}"
+          alt="{{ item.category }} image"
+          class="cw-outfit-thumb"
+        >
+        </div>
+        </li>
+        {% endfor %}
+          </ul>
+
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}

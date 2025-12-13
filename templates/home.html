@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block title %}Capsule Wardrobe AI{% endblock %}
+
+{% block content %}
+
+<div class="row gy-4 align-items-center">
+
+  <!-- About section -->
+  <div class="col-lg-6">
+    <section class="cw-card cw-hero-card">
+      <span class="cw-pill mb-3">Your soft-life outfit planner</span>
+
+      <h1 class="hero-title mb-3">
+        30 days of outfits,<br>from the pieces you already own.
+      </h1>
+
+      <p class="text-muted mb-4">
+        Upload your wardrobe, let the AI mix and match, and wake up every morning
+        with a ready-to-wear idea. Romanticize your routine while staying practical.
+      </p>
+
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <a href="#upload" class="cw-btn">Upload wardrobe</a>
+        <a href="{{ url_for('capsule') }}" class="cw-btn-secondary">
+          View my 30-day capsule →
+        </a>
+      </div>
+
+      <ul class="cw-bullets mb-0">
+        <li>Perfect for students, busy girls, and soft-life planners</li>
+        <li>Reuse your pieces beautifully while staying organized</li>
+        <li>No more “I have nothing to wear” mornings</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Upload form -->
+  <div class="col-lg-6" id="upload">
+    <section class="cw-card h-100">
+
+      <h2 class="card-title mb-3">Upload your wardrobe</h2>
+
+      <p class="text-muted mb-4">
+        Add your favourite <strong>tops</strong>, <strong>bottoms</strong>,
+        and <strong>jackets</strong>. The AI will build your capsule from them.
+      </p>
+
+      <!-- Upload Form -->
+      <form
+        action="{{ url_for('upload_item') }}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="cw-form"
+        onsubmit="startUpload()"
+      >
+
+        <!-- Image input -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Upload item</label>
+          <input type="file" class="form-control" name="item_image" accept="image/*" required>
+        </div>
+
+        <!-- Category select -->
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Category</label>
+          <select name="category" class="form-select" required>
+            <option value="">Select category</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+            <option value="jacket">Jacket</option>
+          </select>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="cw-btn w-100" id="upload-btn">
+          + Add to wardrobe
+        </button>
+
+        <!-- Uploading indicator -->
+        <div id="upload-status" class="cw-upload-status d-none">
+          Uploading your piece... ✨
+        </div>
+      </form>
+
+      <!-- After-upload toast -->
+      {% if uploaded %}
+      <div class="cw-toast mt-3">
+        New item added to your wardrobe 💕
+      </div>
+      {% endif %}
+
+      <!-- Wardrobe count -->
+      {% if item_count is not none %}
+      <p class="small text-muted mt-2">
+        You currently have <strong>{{ item_count }}</strong> item(s) in your wardrobe.
+      </p>
+      {% endif %}
+
+      <div class="mt-4 small text-muted">
+        Tip: aim for at least <strong>10 pieces</strong> to generate a beautiful 30-day capsule.
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<!-- Upload animation script -->
+<script>
+  function startUpload() {
+    const btn = document.getElementById("upload-btn");
+    const status = document.getElementById("upload-status");
+
+    if (btn) {
+      btn.disabled = true;
+      btn.innerText = "Uploading...";
+    }
+    if (status) {
+      status.classList.remove("d-none");
+    }
+  }
+</script>
+
+{% endblock %}
+

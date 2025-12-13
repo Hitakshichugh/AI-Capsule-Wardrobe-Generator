@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Wardrobe | Capsule Wardrobe AI{% endblock %}
+
+{% block content %}
+<div class="row gy-4 align-items-stretch">
+  <!-- Left: Upload card -->
+  <div class="col-lg-6">
+    <section class="cw-card h-100">
+      <h2 class="card-title mb-3">Upload your wardrobe</h2>
+      <p class="text-muted mb-4">
+        Add your favourite <strong>tops</strong>, <strong>bottoms</strong> and
+        <strong>jackets</strong>. We’ll use them to build a curated 30-day capsule for you.
+      </p>
+
+      <form
+        action="{{ url_for('upload_item') }}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="cw-form"
+      >
+        <div class="mb-3">
+          <label for="item_image" class="form-label">Clothing image</label>
+          <div class="cw-file-input">
+            <input
+              type="file"
+              id="item_image"
+              name="item_image"
+              accept="image/*"
+              required
+            />
+            <span class="file-label">Choose a file</span>
+          </div>
+          <div class="form-text">Clear, front-facing photos work best.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select cw-select" id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+            <option value="jacket">Jacket</option>
+          </select>
+        </div>
+
+        <button type="submit" class="cw-btn w-100">
+          + Add to wardrobe
+        </button>
+      </form>
+
+      <div class="mt-4 small text-muted">
+        Tip: aim for around <strong>10 pieces</strong> total for a really nice capsule.
+      </div>
+    </section>
+  </div>
+
+  <!-- Right: mini explainer -->
+  <div class="col-lg-6">
+    <section class="cw-card h-100 d-flex flex-column justify-content-between">
+      <div>
+        <h3 class="card-title mb-3">Build a capsule, not chaos</h3>
+        <p class="text-muted">
+          We reuse your pieces in intentional ways so the month feels cohesive,
+          not repetitive.
+        </p>
+        <ul class="cw-bullets">
+          <li>Works with whatever you already own</li>
+          <li>Gentle on budget, cute on outfits</li>
+          <li>Great for planning study days, dates & brunches</li>
+        </ul>
+      </div>
+
+      <div class="mt-4">
+        <a href="{{ url_for('capsule') }}" class="cw-btn-secondary w-100 text-center">
+          View my 30-day capsule →
+        </a>
+        <div class="small text-muted mt-2">
+          You can generate a capsule any time after uploading at least a few items.
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
