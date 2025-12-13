@@ -125,7 +125,7 @@ Phase 5 — UI to Model Integration 🔗
 Phase 7 — Deployment 🚀
 
 - [x] Containerize app with Docker
-- [x] Deploy Flask app on Render / Railway
+- [x] Deploy Flask app on Render 
 - [x] Add environment variables + config
 - [x] Make public demo link available on GitHub
 
