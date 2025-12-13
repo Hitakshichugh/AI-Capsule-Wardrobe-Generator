@@ -16,5 +16,8 @@ Pillow
 
 matplotlib
 scikit-learn
+<<<<<<< HEAD
 gunicorn==21.2.0
 
+=======
+>>>>>>> 18ee5589bb59836e998dae0eef98d253c3b0b5a2
